@@ -13,6 +13,7 @@
   <tbody>
     <% @feeds.each do |feed| %>
       <tr>
+<!--        <td><%#= feed.image %></td>-->
         <td><%= feed.image %></td>
         <td><%= link_to 'Show', feed %></td>
         <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
