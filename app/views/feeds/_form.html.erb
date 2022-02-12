@@ -15,7 +15,7 @@
     <%= form.label :image %>
     <%= form.file_field :image %>
   </div>
-
+  <%= form.hidden_field :user_id, :value => current_user.id %>
   <div class="actions">
     <%= form.submit %>
   </div>

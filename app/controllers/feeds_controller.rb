@@ -12,7 +12,7 @@ class FeedsController < ApplicationController
 
   # GET /feeds/new
   def new
-    @feed = Feed.new
+    @feed = current_user.feeds.build
   end
 
   # GET /feeds/1/edit
@@ -32,6 +32,11 @@ class FeedsController < ApplicationController
         format.json { render json: @feed.errors, status: :unprocessable_entity }
       end
     end
+  end
+  def confirm
+    @feed = Feed.new(feed_params)
+    @feed.user_id = current_user.id #現在ログインしているuserのidを、blogのuser_idカラムに挿入する
+    render :new if @feed.invalid?
   end
 
   # PATCH/PUT /feeds/1 or /feeds/1.json
@@ -64,6 +69,6 @@ class FeedsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def feed_params
-      params.require(:feed).permit(:image, :image_cache)
+      params.require(:feed).permit(:image, :image_cache, :user_id)
     end
 end
