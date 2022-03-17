@@ -8,7 +8,7 @@ class FeedsController < ApplicationController
 
   # GET /feeds/1 or /feeds/1.json
   def show
-    @feed = Feed.find_by(id: params[id])
+    # @feed = Feed.find_by(id: params[:id])
     @user = User.find_by(id: @feed.user_id)
   end
 
