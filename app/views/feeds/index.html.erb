@@ -14,7 +14,7 @@
     <% @feeds.each do |feed| %>
       <tr>
 <!--        <td><%#= feed.image %></td>-->
-        <td><%= feed.user.id %></td>
+        <td><%= feed.user.name %></td>
         <td><%= feed.image %></td>
         <td><%= feed.content %></td>
         <td><%= link_to 'Show', feed %></td>
