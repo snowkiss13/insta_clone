@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>favorites</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favorites.each do |favorite| %>
+      <tr>
+<!--        <td><%#= favorite.image %></td>-->
+        <td><%= favorite.user.name %></td>
+        <td><%= favorite.feed.title %></td>
+        <td><%= favorite.feed.content %></td>
+        <td><%= image_tag favorite.feed.image.url %></td>
+        <td><%= link_to 'Show', feed_path(favorite.feed.id) %></td>
+<!--        <td><%#= link_to 'Edit', edit_favorite_path(favorite) %></td>-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New favorite', new_favorite_path %>
