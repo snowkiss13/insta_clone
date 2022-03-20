@@ -9,7 +9,9 @@ class FeedsController < ApplicationController
   # GET /feeds/1 or /feeds/1.json
   def show
     # @feed = Feed.find_by(id: params[:id])
+    # ↓今ログインしているユーザがそのブログをお気に入り登録しているかどうか」を判断
     @user = current_user.favorites.find_by(feed_id: @feed.id)
+    @favorite = current_user.favorites.find_by(feed_id: @feed.id)
   end
 
   # GET /feeds/new

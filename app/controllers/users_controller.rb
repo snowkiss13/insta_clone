@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
   def index
-    @userid = current_user.id
     @users = User.all
   end
   def new
@@ -20,11 +19,14 @@ class UsersController < ApplicationController
   end
   def edit
     @user = User.find(params[:id])
+    unless @user.id == current_user.id
+      redirect_to users_path
+    end
   end
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to user_path([user.id])
+    redirect_to user_path(@user.id)
   end
   private
   def user_params

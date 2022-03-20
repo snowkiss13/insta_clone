@@ -1,13 +1,14 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
-<p><%= link_to "プロフィール編集", edit_user_path(@userid) %></p>
+
 
 <ul class="users">
-  <% @user.each do |user| %>
+  <% @users.each do |user| %>
     <li>
-      <%= gravafor user, size: 50 %>
+      <%= image_tag user.image.url size: 50 %>
       <%= link_to user.name, user %>
       <%= link_to %>
+      <%= link_to "プロフィール編集", edit_user_path(user.id) if user.id == current_user.id %>
     </li>
   <% end %>
 </ul>
