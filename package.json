@@ -1,5 +1,14 @@
 {
-  "name": "insta_clone",
+  "name": "yarn",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "4.5.0",
+    "jquery": "3.5.1",
+    "popper.js": "1.16.0"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/snowkiss13/insta_clone.git",
+  "author": "snowkiss13 <snowkiss13@gmail.com>",
+  "license": "MIT"
 }
