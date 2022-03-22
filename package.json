@@ -2,13 +2,19 @@
   "name": "yarn",
   "private": true,
   "dependencies": {
+    "@rails/webpacker": "5.4.3",
     "bootstrap": "4.5.0",
     "jquery": "3.5.1",
-    "popper.js": "1.16.0"
+    "popper.js": "1.16.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
   },
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/snowkiss13/insta_clone.git",
   "author": "snowkiss13 <snowkiss13@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack-dev-server": "^3"
+  }
 }
