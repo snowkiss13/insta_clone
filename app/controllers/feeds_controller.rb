@@ -47,6 +47,7 @@ class FeedsController < ApplicationController
 
   # PATCH/PUT /feeds/1 or /feeds/1.json
   def update
+    # updateメソッドの実行に失敗した場合はeditアクションをrenderするようにします。
     respond_to do |format|
       if @feed.update(feed_params)
         format.html { redirect_to @feed, notice: "Feed was successfully updated." }
