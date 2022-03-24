@@ -3,6 +3,6 @@ class ContactMailer < ApplicationMailer
 
     @contact = contact
     mail to: @contact.email, subject:"お問合せの確認メール"
-    binding.irb
+    # binding.irb
   end
 end

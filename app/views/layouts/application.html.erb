@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <title>InstaClone</title>
     <%= csrf_meta_tags %>
@@ -28,7 +28,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <div class="navbar-header">
-         <a class="navbar-brand" href="#"><%= image_tag "logo.png" %></a>
+         <a class="navbar-brand" href="#"><%= link_to image_tag("logo.png"), "/feeds" %></a>
         </div>
 
         <div class="col-sm-3 col-md-3">
@@ -42,19 +42,14 @@
           </form>
         </div>
         <ul class="nav navbar-right">
-          <li><a href="#"><%= image_tag "home_icon.png" %></a></li>
-          <li><a href="#"><%= image_tag "plus_icon.png" %></a></li>
-          <li><a href="#"><%= image_tag "heart_icon.png" %></a></li>
-          <li><a class="media-body">
+          <li><% link_to image_tag("home_icon.png"), @feed %></a></li>
+          <li><a href="#"><%= link_to image_tag("plus_icon.png"), "/feeds/new" %></a></li>
+          <li><a href="#"><%= link_to image_tag("heart_icon.png"), "/favorites"%></a></li>
+          <li><a class="media-body"></a>
             <% if logged_in? %>
                   <%= image_tag current_user.image.url if current_user.image.present? %>
               <% else %>
-
             <% end %>
-          </a></li>
-
-            </ul>
-          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>
