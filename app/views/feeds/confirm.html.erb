@@ -1,0 +1,10 @@
+<h3>以下の内容で、送信する。</h3>
+
+<%= form_with(model: @feed, local: true) do |form| %>
+  <%= form.hidden_field :image %>
+  <%= form.hidden_field :content %>
+
+  <p>タイトル:<%= @feed.image %></p>
+  <p>本文:<%= @feed.content %></p>
+  <%= form.submit  "登録する" %>
+<% end %>
