@@ -4,7 +4,7 @@
   <%= form.hidden_field :image %>
   <%= form.hidden_field :content %>
 
-  <p>タイトル:<%= @feed.image %></p>
+  <p>タイトル:<%= image_tag @feed.image_url %></p>
   <p>本文:<%= @feed.content %></p>
   <%= form.submit  "登録する" %>
 <% end %>
