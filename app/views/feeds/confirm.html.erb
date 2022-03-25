@@ -2,6 +2,7 @@
 
 <%= form_with(model: @feed, local: true) do |form| %>
   <%= form.hidden_field :image %>
+  <%= form.hidden_field :image_cache %>
   <%= form.hidden_field :content %>
 
   <p>画像:<%= image_tag @feed.image_url %></p>

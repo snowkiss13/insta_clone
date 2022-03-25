@@ -14,7 +14,7 @@
       <% @feeds.each do |feed| %>
         <table class="overflow-auto">
             <thead>
-              <tr><%= image_tag feed.image.url %><br></tr>
+              <tr><%= image_tag feed.image.url if feed.image.present?%><br></tr>
             </thead>
             <tr><%= feed.user.name %>:<%= feed.content %><br></tr>
             <% if feed.user_id == current_user.id %>
