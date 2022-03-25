@@ -28,7 +28,6 @@ class FeedsController < ApplicationController
     @feed = current_user.feeds.build(feed_params)
     # @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id #現在ログインしているuserのidを、feedのuser_idカラムに挿入する
-
     respond_to do |format|
       if @feed.save
         ContactMailer.contact_mailer(@feed.user).deliver
