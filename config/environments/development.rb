@@ -9,6 +9,7 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+
   # Show full error reports.
   # 404,500ページをテスト環境で有効にする場合→Falseにする
   config.consider_all_requests_local = false
