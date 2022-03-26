@@ -28,15 +28,18 @@ class FeedsController < ApplicationController
     @feed = current_user.feeds.build(feed_params)
     # @feed = Feed.new(feed_params)
     # @feed.user_id = current_user.id #現在ログインしているuserのidを、feedのuser_idカラムに挿入する
-
-    respond_to do |format|
-      if @feed.save
-        ContactMailer.contact_mailer(@feed.user).deliver
-        format.html { redirect_to @feed, notice: "Feed was successfully created." }
-        format.json { render :show, status: :created, location: @feed }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @feed.errors, status: :unprocessable_entity }
+    if params[:back]
+      render :new
+    else
+      respond_to do |format|
+        if @feed.save
+          ContactMailer.contact_mailer(@feed.user).deliver
+          format.html { redirect_to @feed, notice: "Feed was successfully created." }
+          format.json { render :show, status: :created, location: @feed }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @feed.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
