@@ -9,12 +9,12 @@
 <!--      <th colspan="3"></th>-->
 <!--    </tr>-->
 <!--  </thead>-->
-
+get push heroku /user_setting
   <tbody>
       <% @feeds.each do |feed| %>
         <table class="overflow-auto">
             <thead>
-              <tr><%= image_tag feed.image.url if feed.image.present?%><br></tr>
+              <tr><%= image_tag feed.image.url if feed.image.present? %><br></tr>
             </thead>
             <tr><%= feed.user.name %>:<%= feed.content %><br></tr>
             <% if feed.user_id == current_user.id %>

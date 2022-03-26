@@ -27,23 +27,17 @@ class FeedsController < ApplicationController
   def create
     @feed = current_user.feeds.build(feed_params)
     # @feed = Feed.new(feed_params)
-    # @feed.user_id = current_user.id #現在ログインしているuserのidを、feedのuser_idカラムに挿入する
-    respond_to do |format|
-      # binding.irb
-      if @feed.save
-        binding.irb
+    @feed.user_id = current_user.id #現在ログインしているuserのidを、feedのuser_idカラムに挿入する
 
+    respond_to do |format|
+      if @feed.save
         ContactMailer.contact_mailer(@feed.user).deliver
         format.html { redirect_to @feed, notice: "Feed was successfully created." }
         format.json { render :show, status: :created, location: @feed }
       else
-        binding.irb
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @feed.errors, status: :unprocessable_entity }
       end
-    end
-    if params[:back]
-      render :new
     end
   end
 
