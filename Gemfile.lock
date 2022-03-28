@@ -248,7 +248,7 @@ DEPENDENCIES
   mini_magick
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
-  rails (~> 5.2.5)
+  rails (~> 5.2.6)
   rexml
   sass-rails (~> 5.0)
   selenium-webdriver
