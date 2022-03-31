@@ -14,7 +14,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-
+# レターオープナーをHerokuで使いたいとき
+gem 'letter_opener_web'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -28,7 +29,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'letter_opener_web'
+  # gem 'letter_opener_web'
 end
 
 group :test do
