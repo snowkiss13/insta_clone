@@ -16,8 +16,9 @@
               <tr><%= image_tag feed.image.url if feed.image.present? %><br></tr>
             </thead>
             <tr><%= feed.user.name %>:<%= feed.content %><br></tr>
+            <tr><%= link_to 'Show', feed %></tr>
             <% if feed.user_id == current_user.id %>
-              <tr><%= link_to 'Show', feed %></tr>
+
               <tr><%= link_to 'Edit', edit_feed_path(feed) %></tr>
               <tr><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></tr>
             <% end %>
