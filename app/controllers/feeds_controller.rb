@@ -65,7 +65,7 @@ class FeedsController < ApplicationController
     end
 
     # 最初にはいってたぶん
-    respond_to do |format|
+    # respond_to do |format|
     #   if @feed.update(feed_params)
     #     format.html { redirect_to @feed, notice: "Feed was successfully updated." }
     #     format.json { render :show, status: :ok, location: @feed }
@@ -75,6 +75,8 @@ class FeedsController < ApplicationController
     #   end
     # end
   end
+
+
 
   # DELETE /feeds/1 or /feeds/1.json
   def destroy
