@@ -54,26 +54,14 @@ class FeedsController < ApplicationController
   def update
     # updateメソッドの実行に失敗した場合はeditアクションをrenderするようにします。
     respond_to do |format|
-      if @feed.save
-        ContactMailer.contact_mailer(@feed.user).deliver
-        format.html { redirect_to @feed, notice: "Feed was successfully created." }
-        format.json { render :show, status: :created, location: @feed }
+      if @feed.update(feed_params)
+        format.html { redirect_to @feed, notice: "Feed was successfully updated." }
+        format.json { render :show, status: :ok, location: @feed }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @feed.errors, status: :unprocessable_entity }
       end
     end
-
-    # 最初にはいってたぶん
-    # respond_to do |format|
-    #   if @feed.update(feed_params)
-    #     format.html { redirect_to @feed, notice: "Feed was successfully updated." }
-    #     format.json { render :show, status: :ok, location: @feed }
-    #   else
-    #     format.html { render :edit, status: :unprocessable_entity }
-    #     format.json { render json: @feed.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
 
